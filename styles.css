@@ -1,109 +1,164 @@
+/* Estilos generales */
 body {
-    font-family: Georgia, serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-image: url('images/fondo.jpg'); /* Ruta a tu imagen de fondo */
     background-size: cover; /* Hace que la imagen cubra todo el fondo */
-    background-position: center; /* Centra la imagen */
+    background-position: unset; /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-attachment: fixed; /* La imagen de fondo se fija y no se desplaza */
     min-height: 100vh; /* Asegura que el fondo cubra al menos la altura de la ventana del navegador */
     display: flex;
     flex-direction: column;
+    line-height: 1.6; /* Espacio entre líneas general para todo el body */
+    position: relative; /* Necesario para la pseudo-clase ::before */
+    
+}
 
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: 1; /* Pone la superposición en frente de la imagen de fondo */
+}
+
+header, section, footer {
+    position: relative;
+    z-index: 2; /* Asegura que el contenido esté por encima de la superposición */
 }
 
 /* Estilos para el encabezado */
 header {
-
-    color: white;
-    text-align: none;
-    padding: 40px 40px;
-    align-self: auto;
-    text-align: center;
-    
+    background-color: rgba(0, 0, 0, 0.7); /* Color de fondo semitransparente */
+    color: #fff;
+    text-align: center; /* Alinea el texto a la derecha en el encabezado */
+    padding: 20px 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente */
 }
-header img.header-img {
+
+header img.perfil-img {
     width: 150px; /* Ajusta el tamaño según tus necesidades */
-    height: 150px;
+    height: auto;
     border-radius: 50%; /* Hace que la imagen sea redonda */
     margin-bottom: 20px;
-    
 }
 
 header h1 {
     margin: 0;
-    font-size: 5.5em; /* Tamaño del encabezado*/
-    display: inline-block;
-    
-    
-    
+    font-size: 2.5em; /* Tamaño del encabezado */
+    line-height: 1.2; /* Espacio entre líneas para el encabezado */
 }
 
 /* Estilos para secciones generales */
 section {
-    padding: 40px;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente para la legibilidad */
+    margin:  0;
+    text-align: center; /* Alinea el texto a la izquierda por defecto */
+    line-height: 1.6; /* Espacio entre líneas para secciones */
+
 }
 
 h2 {
-    color: #ffcf40;
+    color: #fff;
+    text-align:center; /* Alinea los títulos de las secciones a la derecha */
+    font-size: 2em; /* Tamaño de los subtítulos */
+    line-height: 1.4; /* Espacio entre líneas para subtítulos */
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+h3 {
+    color: #fff;
+    text-align:left; /* Alinea los títulos de las secciones a la derecha */
+    font-size: 2em; /* Tamaño de los subtítulos */
+    line-height: 1.4; /* Espacio entre líneas para subtítulos */
+    margin: 0 auto;
 }
 
 /* Estilos para la sección 'Sobre Mí' */
 #about {
-
-    padding: 40px 40px;
+    padding: 40px 20px;
 }
 
-#about p {
+#about p, ul {
     font-size: 1.2em;
-    line-height: 1.6em;
+    line-height: 1.8; /* Espacio entre líneas para el texto de la sección 'Sobre Mí' */
+    text-align: center; /* Justifica el texto en la sección 'Sobre Mí' */
+    color:aliceblue ;
+    max-width: 300px;
+    margin: 0 auto;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
 }
 
+li {
+    display: inline; /* Cambia a "inline-block" si quieres que tengan un ancho fijo */
+    margin-right: 10px; /* Espaciado entre los elementos de lista */
+}
 /* Estilos para la sección 'Proyectos' */
 #projects .project {
-
-    border-bottom: 1px solid #ccc; 
+    border-bottom: 1px solid #ccc;
     padding-bottom: 20px;
 
-
+    text-align: left; /* Alinea el texto a la izquierda en la sección de proyectos */
 }
+
 
 #projects .project:last-child {
-    
     border-bottom: none;
     margin-bottom: 0;
-    margin: 0px;
 }
 
-#projects h3 {
-    color: #16A085;
+#projects h4 {
+    color: #007bff;
+    text-align: left; /* Centra los títulos de los proyectos */
+    line-height: 1.3; /* Espacio entre líneas para los títulos de los proyectos */
 }
 
 #projects p {
     font-size: 1em;
-    line-height: 1.4em;
+    line-height: 1.6; /* Espacio entre líneas para el texto de los proyectos */
+    color:aliceblue;
+    text-align: left; /* Centra los títulos de los proyectos */
 }
 
 /* Estilos para la sección 'Habilidades' */
 #skills ul {
-    background-color: #f6aeb5;
     list-style-type: none;
     padding: 0;
-    columns: 2;
+
+    text-align: left; /* Alinea el texto a la izquierda en la sección de habilidades */
+    color: aliceblue;
+    
 }
 
 #skills li {
-    display: inline-block;
-    width: 100%;
-    font-size: 1em;
-    margin-bottom: 5px;
+
+    display: inline; /* Cambia a "inline-block" si quieres que tengan un ancho fijo */
+    margin-right: 10px; /* Espaciado entre los elementos de lista */
+
+
 }
 
 /* Estilos para la sección 'Contacto' */
 #contact form {
     max-width: 600px;
     margin: 0 auto;
+    text-align: left; /* Alinea el texto a la izquierda en el formulario de contacto */
+    line-height: 1.6; /* Espacio entre líneas para el formulario de contacto */
+    color:aliceblue ;
 }
 
 #contact form input,
@@ -114,6 +169,7 @@ h2 {
     border: 1px solid #ccc;
     font-size: 1em;
     border-radius: 4px;
+    line-height: 1.4; /* Espacio entre líneas para los campos de entrada y área de texto */
 }
 
 #contact form input[type="submit"] {
@@ -124,6 +180,7 @@ h2 {
     padding: 15px;
     font-size: 1.2em;
     border-radius: 4px;
+    line-height: 1.2; /* Espacio entre líneas para el botón de envío */
 }
 
 #contact form input[type="submit"]:hover {
@@ -134,8 +191,9 @@ h2 {
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #333;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
     color: #fff;
+    line-height: 1.6; /* Espacio entre líneas para el pie de página */
 }
 
 footer p {
@@ -150,6 +208,7 @@ footer .social-media a {
     color: #fff;
     margin: 0 10px;
     text-decoration: none;
+    line-height: 1.4; /* Espacio entre líneas para los enlaces de redes sociales */
 }
 
 footer .social-media a:hover {
